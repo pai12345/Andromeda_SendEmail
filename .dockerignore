@@ -1,0 +1,23 @@
+# Folder
+.vscode
+__pycache__
+
+# Build
+build
+dist
+
+# Pipfiles
+Pipfile
+Pipfile.lock
+
+# Docker
+Dockerfile
+
+# Misc
+.DS_Store
+README.md
+LICENSE.md
+**.pyc
+.git
+.gitignore
+.env

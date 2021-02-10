@@ -1,0 +1,22 @@
+# Cache and Config
+__pycache__
+.vscode
+
+# Pipfiles
+Pipfile
+Pipfile.lock
+
+# Pyinstaller
+index.spec
+/build
+/dist
+
+# misc
+.DS_Store
+**.pyc
+**.toc
+**.zip
+**.pkg
+**.pyz
+**.html
+**.txt
