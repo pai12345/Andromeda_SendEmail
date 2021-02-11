@@ -10,7 +10,7 @@ pipeline{
         timeout(time: 5, unit: 'MINUTES') 
         skipDefaultCheckout true
     }  
-    tools {nodejs "python"}
+    tools {python "System-CPython-3.8"}
     stages{
         stage('Cloning Repository'){
           steps{     
