@@ -5,7 +5,11 @@ pipeline{
     //         args '-p 5000:5000'
     //         } 
     // }
-    agent any
+    agent {
+      docker {
+        image 'python:alpine' 
+      }
+    }
     options {
         timeout(time: 5, unit: 'MINUTES') 
         skipDefaultCheckout true
