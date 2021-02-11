@@ -1,10 +1,4 @@
 pipeline{
-    // agent {
-    //     docker { 
-    //         image 'node:lts' 
-    //         args '-p 5000:5000'
-    //         } 
-    // }
     agent {
       docker {
         image 'python:alpine' 
@@ -13,8 +7,7 @@ pipeline{
     options {
         timeout(time: 5, unit: 'MINUTES') 
         skipDefaultCheckout true
-    }  
-    tools {jenkins.plugins.shiningpanda.tools.PythonInstallation "System-CPython-3.8"}
+    }
     stages{
         stage('Cloning Repository'){
           steps{     
