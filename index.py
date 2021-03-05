@@ -2,6 +2,13 @@ import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from Packages.email.email import oServe_email
+from Packages.schema.schema import EmailSchema
+# import asyncio
+# from Packages.email.email import oServe_email
+
+# sendEmail = oServe_email.sendEmail()
+# asyncio.run(sendEmail)
+
 
 app = FastAPI()
 app.add_middleware(CORSMiddleware,
@@ -11,11 +18,12 @@ app.add_middleware(CORSMiddleware,
                    allow_headers=["*"])
 
 
-@app.get("/")
-async def send_email():
+@app.post("/")
+async def send_email(*, req: EmailSchema):
     try:
-        email = await oServe_email.sendEmail()
-        return email
+        print(req.dict()["Payload"])
+        # email = await oServe_email.sendEmail()
+        # return email
     except BaseException as error:
         return f"""{error}"""
 
