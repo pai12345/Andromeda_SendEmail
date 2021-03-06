@@ -21,9 +21,9 @@ app.add_middleware(CORSMiddleware,
 @app.post("/")
 async def send_email(*, req: EmailSchema):
     try:
-        print(req.dict()["Payload"])
-        # email = await oServe_email.sendEmail()
-        # return email
+        # print(req.dict()["Payload"])
+        email = await oServe_email.sendEmail()
+        return email
     except BaseException as error:
         return f"""{error}"""
 

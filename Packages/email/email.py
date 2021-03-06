@@ -41,6 +41,7 @@ class Email:
                 session.sendmail(sender_address, receiver_address, text)
                 session.quit()
                 return "Success"
+
             else:
                 return validate
         except BaseException as error:
