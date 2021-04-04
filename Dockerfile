@@ -1,21 +1,27 @@
 # Python base image
-FROM python:alpine as builder
+FROM python:3.10.0a6-alpine3.13
 
-# ENV SENDER_ADDRESS=chessautomationtools@gmail.com
-# ENV SENDER_PASS=Test
-# ENV RECEIVER_ADDRESS=chessautomationtools@gmail.com
-# ENV SMTP_PORT=587
-
+# Create user and group
+RUN addgroup app && adduser -S -G app app
 
 # Create working directory
 WORKDIR /app
 
-# Copy contents to app
-COPY . /app
+# Copy requirements.txt to app
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install -r requirements.txt
 
+# Copy contents to app
+COPY . .
+
+# Set user
+USER app
+
+# Expose Port
+EXPOSE 8000
+
 # Execute App
-CMD python index.py
+ENTRYPOINT [ "python", "index.py" ]  
 
